@@ -11,3 +11,8 @@
  
 
 }
+.App-content{
+  grid-area:  c;
+  background-color: rgb(205, 221, 134);
+ 
+}
