@@ -1,6 +1,6 @@
 import React from 'react';
 import ss from './Profile.module.css'
-
+import MyPosts from './MyPosts/MyPosts'
 const Profile =()=>{
     return(
         <div className={ss.content}>
@@ -10,22 +10,7 @@ const Profile =()=>{
         <div>
           ava+ description
         </div>
-        <div>
-          My Post
-          <div>
-            New Post
-          </div>
-
-          <div className={ss.item}>
-            post1
-          </div>
-          <div className={ss.item}>
-            post2
-          </div>
-          <div className={ss.item}>
-            post3
-          </div>
-        </div>
+        <MyPosts />
       </div>
     )
 }
