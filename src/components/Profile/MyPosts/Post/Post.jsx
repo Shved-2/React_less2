@@ -1,13 +1,13 @@
 import React from 'react';
 import ss from './Post.module.css'
 
-const Post = () => {
+const Post = (props) => {
   return (
 
     <div className={ss.item}>
       <img src="https://image.flaticon.com/icons/png/512/40/40098.png" />
-        post1
-        <span>&hearts;</span>
+      {props.message}
+      <span>&hearts; {props.likeCount}</span>
     </div>
 
   )
