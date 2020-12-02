@@ -2,6 +2,10 @@ import React from 'react';
 import ss from './MyPosts.module.css'
 import Post from './Post/Post'
 
+let postData =[
+  {id:0, message: 'ну че кого???', likeCount: 12},
+  {id:0, message: 'та пока не понятно', likeCount: 34},
+]
 
 const MyPosts = () => {
   return (
@@ -17,8 +21,8 @@ const MyPosts = () => {
 
       </div>
 
-      <Post message="ну че кого???" likeCount='12' />
-      <Post message="та пока не понятно" likeCount='3' />
+      <Post message={postData[0].message} likeCount={postData[0].likeCount} />
+      <Post message={postData[1].message} likeCount={postData[1].likeCount} />
     </div>
   )
 }
