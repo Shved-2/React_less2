@@ -1,3 +1,23 @@
 .dia{
   color: blueviolet;
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+}
+.dialogsItem{
+  padding: 10px;
+
+}
+.dialog{
+
+}
+.dialogsItem .active{
+  font-weight: bold;
+}
+
+.messages{
+  padding: 10px;
+
+}
+.message{
+
 }
