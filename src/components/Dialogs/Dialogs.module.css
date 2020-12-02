@@ -13,6 +13,9 @@
 .dialogsItem .active{
   font-weight: bold;
 }
+.dialog a{
+  text-decoration: none;;
+}
 
 .messages{
   padding: 10px;

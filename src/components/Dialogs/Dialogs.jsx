@@ -2,42 +2,43 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import ss from './Dialogs.module.css'
 
+const DialogItem = (props) => {
+  let path = "/dialogs/" + props.id;
+  return (
+    <div className={ss.dialog}>
+      <NavLink to={path}>{props.name}</NavLink>
+    </div>
+  )
+}
+
+const Message = (props) => {
+  return (
+    <div className={ss.message}>
+      {props.message}
+    </div>
+  )
+}
+
 const Dialogs = () => {
   return (
     <div className={ss.dia}>
       <div className={ss.dialogsItem}>
-
-        <div className={ss.dialog + ' ' + ss.active}>
-          <NavLink to="/dialogs/1">Petya</NavLink>
-        </div>
-        <div className={ss.dialog}>
-          <NavLink to="/dialogs/2">Mary</NavLink>
-        </div>
-        <div className={ss.dialog}>
-          <NavLink to="/dialogs/3">Sveta</NavLink>
-        </div>
-        <div className={ss.dialog}>
-          <NavLink to="/dialogs/4">Nika</NavLink>
-        </div>
-        <div className={ss.dialog}>
-          <NavLink to="/dialogs/5">Vasya</NavLink>
-        </div>
-        <div className={ss.dialog}>
-          <NavLink to="/dialogs/6">Vasya</NavLink>
-        </div>
-
+        <DialogItem name="Petya" id="1" />
+        <DialogItem name="Mary" id="2" />
+        <DialogItem name="Sveta" id="3" />
+        <DialogItem name="Nika" id="4" />
+        <DialogItem name="Vasya" id="5" />
+        <DialogItem name="Ivan" id="6" />
       </div>
+
       <div className={ss.messages}>
-        <div className={ss.message}>
-          привет, че каго???
-        </div>
-        <div className={ss.message}>
-          Вроде пока чсто не понятно, но врооде потитхоньку
-        </div>
-        <div className={ss.message}>
-          ништяк)))
-          ништяк))
-        </div>
+        <Message message="привет. че каго??" />
+        <Message message="Вроде пока чсто не понятно, но врооде потитхоньку" />
+        <Message message="ништяк)))
+          ништяк))"/>
+        <Message message="да-да-да" />
+        <Message message="посмотрим дельше" />
+
       </div>
     </div>
   )
