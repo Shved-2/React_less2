@@ -1,7 +1,7 @@
 import React from 'react';
 import ss from './ProfileInfo.module.css'
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div className={ss.content}>
             <div>
