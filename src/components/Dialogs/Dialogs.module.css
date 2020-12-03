@@ -5,6 +5,7 @@
 }
 .dialogsItem{
   padding: 10px;
+  
 
 }
 .dialog{
@@ -14,11 +15,13 @@
   font-weight: bold;
 }
 .dialog a{
-  text-decoration: none;;
+  text-decoration: none;
+  color: #fff;
 }
 
 .messages{
   padding: 10px;
+  color: #fff;
 
 }
 .message{
