@@ -7,6 +7,8 @@ const Message = (props) => {
   return (
     <div className={ss.message}>
       {props.message}
+
+
     </div>
   )
 }
