@@ -4,6 +4,7 @@ import MyPosts from './MyPosts/MyPosts'
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 
 const Profile =(props)=>{
+  debugger;
 
   
   
@@ -11,7 +12,7 @@ const Profile =(props)=>{
       
         <div className={ss.content}>
         <ProfileInfo />
-        <MyPosts  postData={props.postData}/>
+        <MyPosts  postData={props.state.postData}/>
       </div>
     )
 }

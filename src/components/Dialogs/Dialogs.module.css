@@ -8,12 +8,17 @@
   
 
 }
-.dialog{
+
+.dialogsItem img{
+  width: 20px;
+  height: 20px;
+  border-radius: 30%;
 
 }
 .dialogsItem .active{
   font-weight: bold;
 }
+
 .dialog a{
   text-decoration: none;
   color: #fff;

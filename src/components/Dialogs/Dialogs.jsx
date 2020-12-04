@@ -6,31 +6,17 @@ import Message from './Messages/Message'
 
 
 
-const Dialogs = () => {
+const Dialogs = (props) => {
 
-  let dialogsData=[
-    {id:0, name:"Petya"},
-    {id:1, name:"Mary"},
-    {id:2, name:"Sveta"},
-    {id:3, name:"Nikaa"},
-    {id:4, name:"Vasya"},
-    {id:5, name:"Ivan"}
-  ]
-  let messageData=[
-    {id:0, message: "привет. че каго??"},
-    {id:1, message: "Вроде пока чсто не понятно, но врооде потитхоньку" },
-    {id:2, message: "ништяк))) ништяк))"},
-    {id:3, message: "да-да-да"},
-    {id:4, message:"посмотрим дельше"}
-  ]
+ 
   
-  let dialogs  = dialogsData.map((d)=>{
+  let dialogs  = props.state.dialogsData.map((d)=>{
     return(
       <DialogItem name={d.name} id={d.id} />
     )
   })
 
-  let messages = messageData.map((m)=>{
+  let messages = props.state.messageData.map((m)=>{
     return(
       <Message message={m.message} />
     )
