@@ -8,7 +8,9 @@ let state = {
             { id: 0, message: 'учим react', likeCount: 1 },
             { id: 0, message: 'тра-та-та', likeCount: 74 },
         ],
+        newPostText: 'введите текст',
     },
+
     dialogsPage: {
         dialogsData: [
             { id: 0, name: "Petya" },
@@ -29,16 +31,21 @@ let state = {
 
 }
 
-export let addPost =(postMessage)=>{
+export let addPost =()=>{
     let newPost = {
         id:5,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likeCount: 0
     }
     state.profilePage.postData.push(newPost);
+    state.profilePage.newPostText='';
     rerenderEntireTree(state);
 }
 
+export let updateNewPostText =(newText)=>{    
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
 
 
 export default state;
