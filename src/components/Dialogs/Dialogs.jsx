@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import ss from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Messages/Message'
-import { sendMessageCreator, updateNewMessageBodytCreator } from '../../Redux/state';
+import { sendMessageCreator, updateNewMessageBodytCreator } from '../../Redux/dialogReducer';
 
 
 
@@ -50,7 +50,7 @@ const Dialogs = (props) => {
           <div>
             <textarea value={newMessageBody}
               onChange={onNewMessageClick}
-              ref={textMessage}></textarea>
+              placeholder="введите текст"></textarea>
           </div>
           <div>
             <button onClick={onSendMessageClick}>отправить</button>
