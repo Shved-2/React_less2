@@ -1,6 +1,9 @@
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
+const SEND_MESSAGE = "SEND_MESSAGE";
+
 let store = {
 
     _state: {
@@ -30,7 +33,8 @@ let store = {
                 { id: 2, message: "ништяк))) ништяк))" },
                 { id: 3, message: "да-да-да" },
                 { id: 4, message: "посмотрим дельше" }
-            ]
+            ],
+            newMessageBody: '',
         }
     },
     _callSubscriber() {
@@ -62,12 +66,30 @@ let store = {
             this._callSubscriber(this._state);
 
         }
+
+        else if (action.type === SEND_MESSAGE) {
+            let body = { id: 5, message: this._state.dialogsPage.newMessageBody }
+            this._state.dialogsPage.newMessageBody = '';
+            this._state.dialogsPage.messageData.push(body);
+
+
+            this._callSubscriber(this._state);
+        }
+        else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+            this._state.dialogsPage.newMessageBody = action.body;
+            this._callSubscriber(this._state);
+
+        }
     }
 }
 
 export const addPostActionCreator = () => ({ type: ADD_POST })
-export const UpdateNewPostTextActionCreator = (text) => 
+export const UpdateNewPostTextActionCreator = (text) =>
     ({ type: UPDATE_NEW_POST_TEXT, newText: text })
+
+export const sendMessageCreator = () => ({ type: SEND_MESSAGE })
+export const updateNewMessageBodytCreator = (body) =>
+    ({ type: UPDATE_NEW_MESSAGE_BODY, body: body })
 
 
 
