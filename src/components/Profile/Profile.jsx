@@ -9,7 +9,7 @@ debugger;
   return (
     <div className={ss.content}>
       <ProfileInfo />
-      <MyPostsContainer store={props.store} />
+      <MyPostsContainer /*store={props.store}*/ />
     </div>
   )
 }

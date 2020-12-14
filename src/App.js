@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
-import {Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 const App = (props) => {
@@ -15,14 +15,18 @@ const App = (props) => {
       <Nav />
       <div className="App-content">
         <Route path="/profile" render={() => <Profile
-        store={props.store}
-        /*
+        /*store={props.store}
+        
           profilePage={props.state.profilePage}
-          dispatch={props.dispatch}*/ />} />
+          dispatch={props.dispatch}*/ />}
+        />
 
-        <Route path="/dialogs" render={() => <DialogsContainer
+        <Route path="/dialogs"
+          render={() => <DialogsContainer
           //state={props.state.dialogsPage}
-          store={props.store} />} />
+          //store={props.store}
+          />}
+        />
 
       </div>
 
