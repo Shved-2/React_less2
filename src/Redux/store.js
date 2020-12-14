@@ -4,9 +4,7 @@ import sidebarReducer from "./sidebarReducer";
 
 
 let store = {
-
     _state: {
-
         profilePage: {
             postData: [
                 { id: 0, message: 'ну че кого???', likeCount: 12 },
@@ -16,7 +14,6 @@ let store = {
             ],
             newPostText: 'введите текст',
         },
-
         dialogsPage: {
             dialogsData: [
                 { id: 0, name: "Petya" },
@@ -41,7 +38,7 @@ let store = {
         console.log('!!!');
     },
 
-    getstate() {
+    getState() {
         return this._state;
     },
     subscribe(observer) {

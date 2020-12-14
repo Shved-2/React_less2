@@ -1,15 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import ss from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Messages/Message'
-import { sendMessageCreator, updateNewMessageBodytCreator } from '../../Redux/dialogReducer';
 
 
 
 const Dialogs = (props) => {
 
-  let state = props.store.getstate().dialogsPage;
+  let state = props.dialogsPage;
 
   let dialogs = state.dialogsData.map((d) => {
     return (
@@ -27,13 +25,14 @@ const Dialogs = (props) => {
 
   let textMessage = React.createRef();
   let onSendMessageClick = () => {
-    props.store.dispatch(sendMessageCreator());
+    props.sendMessage();
 
   }
 
   let onNewMessageClick = (e) => {
     let body = e.target.value;
-    props.store.dispatch(updateNewMessageBodytCreator(body));
+    props.updateNewMessageBody(body);
+   
 
   }
 
