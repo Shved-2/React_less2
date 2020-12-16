@@ -21,7 +21,7 @@ const Nav = () => {
                 <NavLink to="/Setting" activeClassName={ss.active}>Настройки</NavLink>
             </div>
             <div className={ss.item}>
-                <NavLink to="/Frends" activeClassName={ss.active}>Друзья</NavLink>
+                <NavLink to="/users" activeClassName={ss.active}>Друзья</NavLink>
             </div>
 
 
