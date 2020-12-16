@@ -4,16 +4,20 @@ import ss from './Users.module.css'
 import userPhoto from '../../assets/images/user.png'
 
 const Users = (props) => {
-    if (props.users.length === 0) {
-        Axios.get('https://social-network.samuraijs.com/api/1.0/users')
-            .then(response => {
-                props.setUsers(response.data.items);
-            });
+    let getUser = () => {
+        if (props.users.length === 0) {
+            Axios.get('https://social-network.samuraijs.com/api/1.0/users')
+                .then(response => {
+                    props.setUsers(response.data.items);
+                });
 
+        }
     }
+
 
     return (
         <div className={ss.head}>
+            <button onClick={getUser}>set user</button>
             {
                 props.users.map(u => <div key={u.id}>
                     <span>
