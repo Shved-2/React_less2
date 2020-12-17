@@ -1,12 +1,16 @@
 import React from 'react';
 import Users from './Users';
 import { connect } from 'react-redux';
-import { followAC, unfollowAC, setUsersAC } from '../../Redux/userReducer';
+import { followAC, unfollowAC, setUsersAC, setCurrentPageAC, setUsersTotalCountAC } from '../../Redux/userReducer';
 
 
 let mapStateToPropse = (state) => {//принимает весь state целиком и возвращает, то что нам нужно
     return {
-      users: state.usersPage.users
+      users: state.usersPage.users,
+      pageSize: state.usersPage.pageSize,
+      totalUsersCount: state.usersPage.totalUsersCount,
+      currentPage: state.usersPage.currentPage
+
     }
   }
   let mapDispatchToProps = (dispatch) => {//служит для пердачи  
@@ -20,6 +24,12 @@ let mapStateToPropse = (state) => {//принимает весь state цели�
       },
       setUsers: (users) => {
         dispatch(setUsersAC(users));
+      },
+      setCurrentPage:(pageNumber)=>{
+        dispatch(setCurrentPageAC(pageNumber));
+      },
+      setTotalUsersCount:(totalCount)=>{
+        dispatch(setUsersTotalCountAC(totalCount));
       }
     }
   }
