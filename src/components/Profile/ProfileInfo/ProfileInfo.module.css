@@ -10,3 +10,6 @@
 .description{
     padding: 10px;
 }
+.description .large{
+    width: 100px;
+}
