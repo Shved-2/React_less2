@@ -5,7 +5,7 @@ const Post = (props) => {
   return (
 
     <div className={ss.item}>
-      <img src="https://image.flaticon.com/icons/png/512/40/40098.png" />
+      <img src="https://image.flaticon.com/icons/png/512/40/40098.png"  alt="fg"/>
       {props.message}
       <span>&hearts; {props.likeCount}</span>
     </div>

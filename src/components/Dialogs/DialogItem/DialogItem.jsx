@@ -7,7 +7,7 @@ const DialogItem = (props) => {
   return (
     <div className={ss.dialog}>
       <NavLink to={path}>
-        <img  src="https://st2.depositphotos.com/1898481/6448/i/600/depositphotos_64486573-stock-photo-people.jpg" />
+        <img  src="https://st2.depositphotos.com/1898481/6448/i/600/depositphotos_64486573-stock-photo-people.jpg" alt="kjh" />
         {props.name}</NavLink>
     </div>
   )

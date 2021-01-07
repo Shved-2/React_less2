@@ -9,10 +9,10 @@ const Profile = (props) => {
     return (
         <div className={ss.content}>
             <div>
-                <img src="https://vokrugsveta.ua/wp-content/uploads/2020/03/shutterstock_1606266022-918x590.jpg" />
+                <img src="https://vokrugsveta.ua/wp-content/uploads/2020/03/shutterstock_1606266022-918x590.jpg" alt="gfh"/>
             </div>
             <div className={ss.description}>
-                <img className={ss.large} src={props.profile.photos.small} />
+                <img className={ss.large} src={props.profile.photos.small} alt="dfghdgf" />
                 <h3>Я здесь на связи</h3>
                 {
                     Object.keys(props.profile.contacts).map(elem => {
