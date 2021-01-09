@@ -11,31 +11,28 @@ import {
 } from '../../Redux/userReducer';
 import * as Axios from 'axios';
 import Preloader from '../common/preloader/Preloader';
+import { usersAPI } from '../../api/Api';
 
 
 class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.toggletIsFetching(true);
-    Axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}
-      &Count=${this.props.pageSize}`, {
-      withCredentials: true
-    })
-      .then(response => {
+
+    usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
+      .then(data => {
         this.props.toggletIsFetching(false);
-        this.props.setUsers(response.data.items);
-        this.props.setTotalUsersCount(response.data.totalCount);
+        this.props.setUsers(data.items);
+        this.props.setTotalUsersCount(data.totalCount);
       });
   }
   onPageChanged = (pageNumber) => {
     this.props.toggletIsFetching(true);
     this.props.setCurrentPage(pageNumber);
-    Axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}
-      &Count=${this.props.pageSize}`, {
-      withCredentials: true
-    })
-      .then(response => {
+
+    usersAPI.getUsers(pageNumber, this.props.pageSize)
+      .then(data => {
         this.props.toggletIsFetching(false);
-        this.props.setUsers(response.data.items);
+        this.props.setUsers(data.items);
       });
     console.log(this.props.pageSize);
   }
