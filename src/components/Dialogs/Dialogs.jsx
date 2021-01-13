@@ -2,6 +2,7 @@ import React from 'react';
 import ss from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Messages/Message'
+import { Redirect } from 'react-router-dom';
 
 
 
@@ -17,7 +18,7 @@ const Dialogs = (props) => {
 
   let messages = state.messageData.map((m) => {
     return (
-      <Message message={m.message}  key={m.id}/>
+      <Message message={m.message} key={m.id} />
     )
   })
   let newMessageBody = state.newMessageBody;
@@ -32,10 +33,10 @@ const Dialogs = (props) => {
   let onNewMessageClick = (e) => {
     let body = e.target.value;
     props.updateNewMessageBody(body);
-   
+
 
   }
-
+  if (!props.isAuth) return <Redirect to={'/login'} />;
   return (
     <div className={ss.dia}>
       <div className={ss.dialogsItem}>
