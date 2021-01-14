@@ -9,6 +9,7 @@ import {
   getUsers
 } from '../../Redux/userReducer';
 import Preloader from '../common/preloader/Preloader';
+import { widthAuthRedirect } from '../../hoc/withAuthRedirect';
 //import { usersAPI } from '../../api/Api';
 
 
@@ -55,33 +56,12 @@ let mapStateToPropse = (state) => {//принимает весь state цели�
 
   }
 }
-/*
-let mapDispatchToProps = (dispatch) => {//служит для пердачи  
-  //длочерней компоненте функции для работы
-  return {
-    follow: (usersId) => {
-      dispatch(followAC(usersId));
-    },
-    unfollow: (usersId) => {
-      dispatch(unfollowAC(usersId));
-    },
-    setUsers: (users) => {
-      dispatch(setUsersAC(users));
-    },
-    setCurrentPage: (pageNumber) => {
-      dispatch(setCurrentPageAC(pageNumber));
-    },
-    setTotalUsersCount: (totalCount) => {
-      dispatch(setUsersTotalCountAC(totalCount));
-    },
-    toggletIsFetching: (isFetching) => {
-      dispatch(toggletIsFetchingAC(isFetching));
-    },
-  }
-}*/
+
+
+//let withRedirect = widthAuthRedirect(UsersContainer);
 
 
 
-export default connect(mapStateToPropse, {
-  follow, unfollow,  setCurrentPage, toggleFollowingProgress, getUsers})(UsersContainer);
+export default widthAuthRedirect(connect(mapStateToPropse, {
+  follow, unfollow,  setCurrentPage, toggleFollowingProgress, getUsers})(UsersContainer));
 
