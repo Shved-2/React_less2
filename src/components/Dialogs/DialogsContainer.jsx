@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { widthAuthRedirect } from '../../hoc/withAuthRedirect';
 import { sendMessageCreator, updateNewMessageBodyCreator } from '../../Redux/dialogReducer';
 import Dialogs from './Dialogs';
@@ -19,9 +20,9 @@ let mapDispatchToProps = (dispatch) => {
     }
   }
 }
-let AuthRedurectComponent = widthAuthRedirect(Dialogs);
 
 
-
-const DialogsContainer = connect(mapStateToPropse, mapDispatchToProps)(AuthRedurectComponent);
-export default DialogsContainer;
+export default compose(
+  connect(mapStateToPropse, mapDispatchToProps),
+  widthAuthRedirect
+)(Dialogs);

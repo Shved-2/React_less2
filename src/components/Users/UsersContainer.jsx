@@ -10,6 +10,7 @@ import {
 } from '../../Redux/userReducer';
 import Preloader from '../common/preloader/Preloader';
 import { widthAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 //import { usersAPI } from '../../api/Api';
 
 
@@ -62,6 +63,10 @@ let mapStateToPropse = (state) => {//принимает весь state цели�
 
 
 
-export default widthAuthRedirect(connect(mapStateToPropse, {
-  follow, unfollow,  setCurrentPage, toggleFollowingProgress, getUsers})(UsersContainer));
+//export default widthAuthRedirect(connect(mapStateToPropse, {
+  //follow, unfollow,  setCurrentPage, toggleFollowingProgress, getUsers})(UsersContainer));
 
+export default compose(
+  connect(mapStateToPropse, {follow, unfollow,  setCurrentPage, toggleFollowingProgress, getUsers}),
+  widthAuthRedirect,
+)(UsersContainer)
