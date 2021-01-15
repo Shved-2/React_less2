@@ -68,5 +68,5 @@ let mapStateToPropse = (state) => {//принимает весь state цели�
 
 export default compose(
   connect(mapStateToPropse, {follow, unfollow,  setCurrentPage, toggleFollowingProgress, getUsers}),
-  widthAuthRedirect,
+ // widthAuthRedirect,
 )(UsersContainer)
