@@ -15,7 +15,14 @@ const Profile = (props) => {
             </div>*/}
             <div className={ss.description}>
                 <img className={ss.large} src={props.profile.photos.small} alt="dfghdgf" />
-                <ProfileStatus status={props.profile.aboutMe} />
+                <p>Имя : {props.profile.fullName}</p>
+                <ProfileStatus
+                    status={props.status}
+                    updateStatus={props.updateStatus}
+                //status={props.profile.status}
+                />
+
+                <p>обо мне : {props.profile.aboutMe}</p>
                 {
                     Object.keys(props.profile.contacts).map(elem => {
                         return (<p>{elem}: {props.profile.contacts[elem]}</p>)
@@ -24,6 +31,7 @@ const Profile = (props) => {
                 }
                 {/* <p>Коротко обо мне : {props.profile.aboutMe}</p>*/}
                 <hr />
+
                 <p>Цель в жизни : {props.profile.lookingForAJobDescription}</p>
                 ava+ description
             </div>

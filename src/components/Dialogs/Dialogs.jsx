@@ -36,7 +36,7 @@ const Dialogs = (props) => {
 
 
   }
-  if (!props.isAuth) return <Redirect to={'/login'} />;
+  //if (!props.isAuth) return <Redirect {/*to={'/login'}*/} />;
   return (
     <div className={ss.dia}>
       <div className={ss.dialogsItem}>
