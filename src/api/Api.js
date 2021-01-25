@@ -1,5 +1,4 @@
 import * as axios from "axios";
-//import { follow } from "../Redux/userReducer";
 
 const instance = axios.create({
     withCredentials: true,
