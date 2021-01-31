@@ -1,42 +1,63 @@
 import React from 'react';
 import './App.css';
 import Nav from './components/Nav/Nav';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import LoginPage from './components/login/Login';
+import { initialaizeApp } from './Redux/appReducer'
 
-const App = (props) => {
-  return (
 
-    <div className="App">
-      <HeaderContainer />
-      <Nav />
-      <div className="App-content">
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import Preloader from './components/common/preloader/Preloader';
 
-        <Route path="/profile/:userId?" render={() => <ProfileContainer />}
-        />
+class App extends React.Component {
 
-        <Route path="/dialogs"
-          render={() => <DialogsContainer />}
-        />
+  componentDidMount() {
+    this.props.initialaizeApp();
+  }
+  render() {
+    if (!this.props.initialized) {
+      return <Preloader />
+    }
 
-        <Route path="/users"
-          render={() => <UsersContainer />}
-        />
-        <Route path="/login"
-          render={() => <LoginPage />}
-        />
+    return (
 
+      <div className="App">
+        <HeaderContainer />
+        <Nav />
+        <div className="App-content">
+
+          <Route path="/profile/:userId?" render={() => <ProfileContainer />}
+          />
+
+          <Route path="/dialogs"
+            render={() => <DialogsContainer />}
+          />
+
+          <Route path="/users"
+            render={() => <UsersContainer />}
+          />
+          <Route path="/login"
+            render={() => <LoginPage />}
+          />
+
+
+        </div>
 
       </div>
 
-    </div>
-
-  );
+    );
+  }
 }
 
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized
+})
 
-export default App;
+export default compose(
+  withRouter,
+  connect(mapStateToProps, { initialaizeApp }))(App);
