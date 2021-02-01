@@ -29,7 +29,7 @@ export const initializedSuccess = () => ({ type: INITIALIZED_SUCCESS })
 
 export const initialaizeApp = () => (dispatch) => {
     let promise = dispatch(getAuthUserData());
-    debugger;
+    //debugger;
     dispatch(initializedSuccess());
     Promise.all([promise])
         .then(() => {

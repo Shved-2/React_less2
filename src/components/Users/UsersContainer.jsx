@@ -6,21 +6,28 @@ import {
   unfollow,
   setCurrentPage,
   toggleFollowingProgress,
-  getUsers
+  reqestUsers
 } from '../../Redux/userReducer';
 import Preloader from '../common/preloader/Preloader';
 import { widthAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
-//import { usersAPI } from '../../api/Api';
+import {
+  getCurrentPage,
+  getFollowingInProgress,
+  getIsFetching, 
+  getPageSize,
+  getTotalUsersCount,
+  getUser,
+} from '../../Redux/user-selectors';
 
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    this.props.getUsers(this.props.currentPage, this.props.pageSize);
+    this.props.reqestUsers(this.props.currentPage, this.props.pageSize);
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.getUsers(pageNumber, this.props.pageSize);
+    this.props.reqestUsers(pageNumber, this.props.pageSize);
 
   }
 
@@ -45,7 +52,7 @@ class UsersContainer extends React.Component {
     )
   }
 }
-
+/*
 let mapStateToPropse = (state) => {//принимает весь state целиком и возвращает, то что нам нужно
   return {
     users: state.usersPage.users,
@@ -56,17 +63,23 @@ let mapStateToPropse = (state) => {//принимает весь state цели�
     followingInProgress: state.usersPage.followingInProgress
 
   }
+}*/
+
+let mapStateToPropse = (state) => {//принимает весь state целиком и возвращает, то что нам нужно
+  return {
+    users: getUser(state),
+    pageSize: getPageSize(state),
+    totalUsersCount: getTotalUsersCount(state),
+    currentPage: getCurrentPage(state),
+    isFetching: getIsFetching(state),
+    followingInProgress: getFollowingInProgress(state)
+
+  }
 }
 
 
-//let withRedirect = widthAuthRedirect(UsersContainer);
-
-
-
-//export default widthAuthRedirect(connect(mapStateToPropse, {
-  //follow, unfollow,  setCurrentPage, toggleFollowingProgress, getUsers})(UsersContainer));
 
 export default compose(
-  connect(mapStateToPropse, {follow, unfollow,  setCurrentPage, toggleFollowingProgress, getUsers}),
- // widthAuthRedirect,
+  connect(mapStateToPropse, { follow, unfollow, setCurrentPage, toggleFollowingProgress, reqestUsers }),
+  // widthAuthRedirect,
 )(UsersContainer)
