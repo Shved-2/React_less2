@@ -2,6 +2,7 @@ import React from 'react';
 import Preloader from '../../common/preloader/Preloader';
 import ss from './ProfileInfo.module.css'
 import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHook from './ProfileStatusWithHook';
 
 const Profile = (props) => {
     if (!props.profile) {
@@ -14,9 +15,13 @@ const Profile = (props) => {
                 <img src="https://vokrugsveta.ua/wp-content/uploads/2020/03/shutterstock_1606266022-918x590.jpg" alt="gfh"/>
             </div>*/}
             <div className={ss.description}>
-                <img className={ss.large} src={props.profile.photos.small} alt="dfghdgf" />
+                <img className={ss.large}
+                    src={props.profile.photos.small}
+                    alt="dfghdgf"
+                    updateStatus={props.updateStatus}
+                />
                 <p>Имя : {props.profile.fullName}</p>
-                <ProfileStatus
+                <ProfileStatusWithHook
                     status={props.status}
                     updateStatus={props.updateStatus}
                 //status={props.profile.status}
