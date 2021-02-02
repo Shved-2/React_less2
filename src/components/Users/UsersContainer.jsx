@@ -9,7 +9,6 @@ import {
   reqestUsers
 } from '../../Redux/userReducer';
 import Preloader from '../common/preloader/Preloader';
-import { widthAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 import {
   getCurrentPage,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { requaried, maxLengthCreator } from '../../../utils/validators/validators';
 import { Textarea } from '../../common/FormsControl/FormsControl';
@@ -6,11 +6,10 @@ import ss from './MyPosts.module.css'
 import Post from './Post/Post'
 
 
+const MyPosts = React.memo(props => {
 
+  console.log('render yo');
 
-
-
-const MyPosts = (props) => {
 
   let post = props.postData.map((p) => {
     return (
@@ -38,7 +37,9 @@ const MyPosts = (props) => {
       {post}
     </div>
   )
-}
+
+
+});
 
 const maxLengrh10 = maxLengthCreator(10);
 const AddNewPostForm = (props) => {
