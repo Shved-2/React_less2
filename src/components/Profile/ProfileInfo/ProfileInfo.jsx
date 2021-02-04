@@ -4,40 +4,37 @@ import ss from './ProfileInfo.module.css'
 import ProfileStatus from './ProfileStatus';
 import ProfileStatusWithHook from './ProfileStatusWithHook';
 
-const Profile = (props) => {
-    if (!props.profile) {
+const Profile = ({profile, status, updateStatus}) => {
+    if (!profile) {
         return <Preloader />
     }
     return (
         <div className={ss.content}>
-            {/*
-            <div>
-                <img src="https://vokrugsveta.ua/wp-content/uploads/2020/03/shutterstock_1606266022-918x590.jpg" alt="gfh"/>
-            </div>*/}
+           
             <div className={ss.description}>
                 <img className={ss.large}
-                    src={props.profile.photos.small}
+                    src={profile.photos.small}
                     alt="dfghdgf"
-                    updateStatus={props.updateStatus}
+                    updateStatus={updateStatus}
                 />
-                <p>Имя : {props.profile.fullName}</p>
+                <p>Имя : {profile.fullName}</p>
                 <ProfileStatusWithHook
-                    status={props.status}
-                    updateStatus={props.updateStatus}
+                    status={status}
+                    updateStatus={updateStatus}
                 //status={props.profile.status}
                 />
 
-                <p>обо мне : {props.profile.aboutMe}</p>
+                <p>обо мне : {profile.aboutMe}</p>
                 {
-                    Object.keys(props.profile.contacts).map(elem => {
-                        return (<p>{elem}: {props.profile.contacts[elem]}</p>)
+                    Object.keys(profile.contacts).map(elem => {
+                        return (<p>{elem}: {profile.contacts[elem]}</p>)
 
                     })
                 }
                 {/* <p>Коротко обо мне : {props.profile.aboutMe}</p>*/}
                 <hr />
 
-                <p>Цель в жизни : {props.profile.lookingForAJobDescription}</p>
+                <p>Цель в жизни : {profile.lookingForAJobDescription}</p>
                 ava+ description
             </div>
 

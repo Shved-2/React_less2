@@ -13,7 +13,7 @@ import { compose } from 'redux';
 import {
   getCurrentPage,
   getFollowingInProgress,
-  getIsFetching, 
+  getIsFetching,
   getPageSize,
   getTotalUsersCount,
   getUser,
@@ -22,11 +22,13 @@ import {
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    this.props.reqestUsers(this.props.currentPage, this.props.pageSize);
+    const { currentPage, pageSize } = this.props
+    this.props.reqestUsers(currentPage, pageSize);
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.reqestUsers(pageNumber, this.props.pageSize);
+    const {pageSize} = this.props;
+    this.props.reqestUsers(pageNumber, pageSize);
 
   }
 

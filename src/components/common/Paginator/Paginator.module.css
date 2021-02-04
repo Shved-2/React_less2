@@ -1,0 +1,19 @@
+.head{
+    padding: 10px;
+    background-color: blueviolet;
+}
+img{
+    width: 50px;
+}
+
+.selectedPage{
+    background-color: rgb(145, 218, 11);
+}
+.buttonList{
+    margin: auto;
+    margin-bottom: 20px;
+}
+.buttonList button{
+    margin-left: 10px;
+    width: 30px;
+}

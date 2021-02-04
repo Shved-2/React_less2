@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from 'react';
+import React  from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { requaried, maxLengthCreator } from '../../../utils/validators/validators';
 import { Textarea } from '../../common/FormsControl/FormsControl';
